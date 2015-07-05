@@ -1,15 +1,21 @@
+var same_words = [];
+
 function collect_same_elements(collection_a, object_b) {
   //在这里写入代码
-  var same_words = [];
-  for(var i=0; i<collection_a.length; ++i)
+  for(var x=0; x<collection_a.length; ++x)
   {
-    for(var j=0; j<object_b.value.length; ++j)
-    {
-      if(collection_a[i].key == object_b.value[j])
-      {
-        same_words.push(collection_a[i].key);
-      }
-    }
+    findObjectb(collection_a[x].key,object_b);
   }
   return same_words;
+}
+
+function findObjectb(item,object_b)
+{
+  for(var y=0; y<object_b.value.length; ++y)
+  {
+    if(item === object_b.value[y])
+    {
+      same_words.push(item);
+    }
+  }
 }

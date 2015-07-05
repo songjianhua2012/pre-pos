@@ -1,19 +1,24 @@
+var same_words = [];
 function collect_same_elements(collection_a, collection_b)
 {
   //在这里写入代码
-  var same_words = [];
-  for(var i=0; i<collection_a.length; ++i)
+  for(var x=0; x<collection_a.length; ++x)
   {
-    for(var j=0; j<collection_b.length; ++j)
+    findCollectionb(collection_a[x],collection_b);
+  }
+  return same_words;
+}
+
+function findCollectionb(item,collection_b)
+{
+  for(var y=0; y<collection_b.length; ++y)
+  {
+    for(var k=0; k<collection_b[y].length; ++k)
     {
-      for(var k=0; k<collection_b[j].length; ++k)
+      if(item === collection_b[y][k])
       {
-        if(collection_a[i] == collection_b[j][k])
-        {
-          same_words.push(collection_a[i]);
-        }
+        same_words.push(item);
       }
     }
   }
-  return same_words;
 }

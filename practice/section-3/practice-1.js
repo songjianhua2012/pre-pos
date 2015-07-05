@@ -1,16 +1,22 @@
+var result = [];
+
 function create_updated_collection(collection_a, object_b) {
   //在这里写入代码
-  var result = [];
-  for(var i=0; i<collection_a.length; ++i)
+  for(var x=0; x<collection_a.length; ++x)
   {
-    for(var j=0; j<object_b.value.length; ++j)
-    {
-      if(collection_a[i].key == object_b.value[j])
-      {
-        collection_a[i].count -= 1;
-      }
-    }
-    result.push({key:collection_a[i].key,count:collection_a[i].count});
+    result.push(findObjectb(collection_a[x],object_b));
   }
   return result;
+}
+
+function findObjectb(item,object_b)
+{
+  for(var y=0; y<object_b.value.length; ++y)
+  {
+    if(item.key === object_b.value[y])
+    {
+      item.count -= 1;
+    }
+  }
+  return item;
 }
