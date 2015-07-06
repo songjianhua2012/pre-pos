@@ -14,9 +14,22 @@ function addResult(item,result)
   {
     if(item[0] === result[y].key)
     {
-      result[y].count += (item.length == 1?1:(item.length>4?(parseInt(item[2])*10+parseInt(item[3])):parseInt(item[2])));
+      result[y].count += (item.length == 1?1:makeNumber(item));
       return;
     }
   }
-  result.push({key:item[0],count:item.length == 1?1:(item.length>4?(parseInt(item[2])*10+parseInt(item[3])):parseInt(item[2]))});
+  result.push({key:item[0],count:item.length == 1?1:makeNumber(item)});
+}
+
+function makeNumber(item)
+{
+  var str='';
+  for(var m=0; m<item.length; ++m)
+  {
+    if(!isNaN(parseInt(item[m])))
+    {
+      str += item[m];
+    }
+  }
+  return parseInt(str);
 }
